@@ -1,0 +1,10 @@
+<!-- <view>
+  12312
+</view> -->
+
+<view class="container">
+    123123213213
+    <text>{{test}}</text>
+    <!-- <testCom></testCom> -->
+</view>
+ 

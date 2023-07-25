@@ -5,11 +5,14 @@ const app = getApp()
 Page({
   data: {
     motto: 'Hello World11',
-    userInfo: {name:'123'},
+    userInfo: {
+      nickName: '123',
+      avatarUrl: 'ttt'
+    },
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     canIUseGetUserProfile: false,
-    canIUseOpenData: wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName') // 如需尝试获取用户信息可改为false
+    canIUseOpenData: false && wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName') // 如需尝试获取用户信息可改为false
   },
   // 事件处理函数
   bindViewTap() {
@@ -23,6 +26,11 @@ Page({
         canIUseGetUserProfile: true
       })
     }
+  },
+  onShow(){
+    // this.getTabBar().setData({
+    //   curI: 1
+    // })
   },
   getUserProfile(e) {
     // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
@@ -45,10 +53,10 @@ Page({
       hasUserInfo: true
     })
   },
-  fromLogin(){
-    console.log(1);
-    wx.navigateTo({
-      url:"/pages/logs/logs"
-    })
+  fromLogin() {
+    // this.getUserProfile()
+    // wx.navigateTo({
+    //   url:"/pages/card-interview/card-interview"
+    // })
   }
 })
