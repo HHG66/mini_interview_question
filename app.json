@@ -4,7 +4,9 @@
         "pages/logs/logs",
         "pages/login/login",
         "pages/card-interview/card-interview",
-        "pages/personal-question/personal-question"
+        "pages/personal-question/personal-question",
+        "pages/interview-detail/interview-detail"
+        
     ],
     "window": {
         "backgroundTextStyle": "light",

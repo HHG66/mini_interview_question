@@ -1,4 +1,4 @@
-// pages/card-interview/tabBar/TabBar.js
+// pages/interview-detail/interview-detail.js
 Component({
   /**
    * 组件的属性列表
