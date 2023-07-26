@@ -8,8 +8,8 @@ Component({
         icon: 'home'
       },
       {
-        value: 'pages/question-bank/question-bank',
-        label: '卡片题库',
+        value: 'pages/grad-question/grad-question',
+        label: '题库',
         icon: 'app'
       },
       {

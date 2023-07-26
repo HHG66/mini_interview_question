@@ -1,0 +1,11 @@
+
+  .flex-wrp{
+    display:flex;
+  }
+  .flex-item{
+    width: 200rpx;
+    height: 300rpx;
+    font-size: 26rpx;
+  }
+ 
+  

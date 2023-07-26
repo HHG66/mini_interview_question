@@ -1,6 +1,4 @@
 {
-    "component": true,
-    "usingComponents": {
-        "t-cell": "tdesign-miniprogram/cell/cell"
-    }
+  "component": true,
+  "usingComponents": {}
 }

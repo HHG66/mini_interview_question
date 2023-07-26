@@ -5,7 +5,8 @@
     "pages/personal-question/personal-question",
     "pages/logs/logs",
     "pages/login/login",
-    "pages/interview-detail/interview-detail"
+    "pages/interview-detail/interview-detail",
+    "pages/grad-question/grad-question"
 
   ],
   "window": {
@@ -30,8 +31,8 @@
         "text": "首页"
       },
       {
-        "pagePath": "pages/question-bank/question-bank",
-        "text": "卡片题库"
+        "pagePath": "pages/grad-question/grad-question",
+        "text": "题库"
       },
       {
         "pagePath": "pages/personal-question/personal-question",

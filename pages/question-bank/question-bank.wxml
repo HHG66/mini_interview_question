@@ -1,8 +1,2 @@
-<view>
-  <!-- <text>卡片题库</text> -->
-  <t-cell-group theme="card">
-    <view wx:for="{{cardData}}" wx:key="id" wx:for-index="idx" wx:for-item="item" bindtap="clickCard">
-      <t-cell title="{{item.title}}" leftIcon="{{item.leftIcon}}" id="{{item.id}}" hover arrow />
-    </view>
-  </t-cell-group>
-</view>
+<!--pages/question-bank/question-bank.wxml-->
+<text>pages/question-bank/question-bank.wxml</text>
