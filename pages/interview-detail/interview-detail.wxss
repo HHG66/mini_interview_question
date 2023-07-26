@@ -1,0 +1,6 @@
+.article {
+  padding: 3%;
+  word-break: break-all;
+  text-align: justify;
+  line-height: 80rpx;
+}

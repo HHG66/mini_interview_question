@@ -31,7 +31,7 @@ App({
           success:function (res) {
             console.log(res);
             // app.netWorkData.result = res.data
-            resolve()
+            resolve(res)
           }
        
         })

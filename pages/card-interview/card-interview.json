@@ -1,7 +1,6 @@
 {
     "component": true,
     "usingComponents": {
-        "TabBar":"./TabBar/TabBar",
         "t-cell": "tdesign-miniprogram/cell/cell"
     }
 }

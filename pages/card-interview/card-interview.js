@@ -21,21 +21,30 @@ const pageView={
   
   clickCard(e){
     console.log(e);
-    wx.ajax({
-      url:'http://test-cn.your-api-server.com/getinterviewlist',
-      type:'GET',
-      data:{
-        test:'1'
-      }
-    }).then((res)=>{
-      console.log(res);
+    wx.navigateTo({
+      url: '/pages/interview-detail/interview-detail',
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    wx.ajax({
+      url:'http://127.0.0.1:4523/m1/3064387-0-default/getinterviewlist',
+      type:'GET',
+      data:{
+        test:'1'
+      }
+    }).then((res)=>{
+      // wx.navigateTo({
+      //   url: 'url',
+      // })
+      // console.log(res);
+      this.setData({
+        cardData:res.data.data
+      })
+      // console.log(res);
+    })
   },
 
   /**
