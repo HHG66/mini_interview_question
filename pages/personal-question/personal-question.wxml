@@ -3,7 +3,7 @@
 </view> -->
 
 <view class="container">
-    123123213213
+    123123213213pppp
     <text>{{test}}</text>
     <!-- <testCom></testCom> -->
 </view>

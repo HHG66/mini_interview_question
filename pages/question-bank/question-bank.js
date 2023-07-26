@@ -29,21 +29,17 @@ const pageView={
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    console.log('---------+++');
     wx.ajax({
-      url:'http://127.0.0.1:4523/m1/3064387-0-default/getinterviewlist',
+      url:'/getinterviewlist',
       type:'GET',
       data:{
         test:'1'
       }
     }).then((res)=>{
-      // wx.navigateTo({
-      //   url: 'url',
-      // })
-      // console.log(res);
       this.setData({
         cardData:res.data.data
       })
-      // console.log(res);
     })
   },
 
@@ -58,7 +54,7 @@ const pageView={
    * 生命周期函数--监听页面显示
    */
   onShow() {
-
+    this.getTabBar().init();
   },
 
   /**

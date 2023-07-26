@@ -1,5 +1,8 @@
+var utils=require('./utils/request')
+
 // app.js
 App({
+  pagePath:'',
   onLaunch() {
     // 展示本地存储能力
     const logs = wx.getStorageSync('logs') || []
@@ -18,26 +21,11 @@ App({
     //   url: './pages/card-interview/card-interview',
     // })
 
-    wx.switchTab({
-      url: './pages/card-interview/card-interview',
-    })
-    wx.ajax = function (data) {
-      let promise = new Promise(function (resolve,reject) {
-        wx.request({
-          url: data.url,
-          header:data.header,
-          data:data.data,
-          method:data.type,
-          success:function (res) {
-            console.log(res);
-            // app.netWorkData.result = res.data
-            resolve(res)
-          }
-       
-        })
-      })
-      return promise
-    }
+    // wx.switchTab({
+    //   url: './pages/card-interview/card-interview',
+    // })
+    wx.requestUrl = 'http://192.168.0.47:4523/m1/3064387-0-default'
+    wx.ajax=utils
   },
   globalData: {
     userInfo: null

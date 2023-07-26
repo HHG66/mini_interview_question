@@ -1,50 +1,43 @@
 {
-    "pages": [
-        "pages/index/index",
-        "pages/logs/logs",
-        "pages/login/login",
-        "pages/card-interview/card-interview",
-        "pages/personal-question/personal-question",
-        "pages/interview-detail/interview-detail"
-        
-    ],
-    "window": {
-        "backgroundTextStyle": "light",
-        "navigationBarBackgroundColor": "#fff",
-        "navigationBarTitleText": "Weixin",
-        "navigationBarTextStyle": "black"
-    },
-    "sitemapLocation": "sitemap.json",
-    "usingComponents": {
-        "t-button": "tdesign-miniprogram/button/button",
-        "t-icon": "tdesign-miniprogram/icon/icon"
-    },
-    "tabBar": {
-        "custom": true,
-        "color": "#7A7E83",
-        "selectedColor": "#3cc51f",
-        "borderStyle": "black",
-        "backgroundColor": "#ffffff",
-        "list": [
-          {
-            "pagePath": "pages/index/index",
-            "iconPath": "image/icon_component.png",
-            "selectedIconPath": "image/icon_component_HL.png",
-            "text": "组件"
-          },
-          {
-            "pagePath": "pages/personal-question/personal-question",
-            "iconPath": "image/icon_API.png",
-            "selectedIconPath": "image/icon_API_HL.png",
-            "text": "接口"
-          },
-           {
-            "pagePath": "pages/card-interview/card-interview",
-            "iconPath": "image/icon_API.png",
-            "selectedIconPath": "image/icon_API_HL.png",
-            "text": "接口1"
-          }
-        ]
+  "pages": [
+    "pages/index/index",
+    "pages/question-bank/question-bank",
+    "pages/personal-question/personal-question",
+    "pages/logs/logs",
+    "pages/login/login",
+    "pages/interview-detail/interview-detail"
+
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Weixin",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "t-button": "tdesign-miniprogram/button/button",
+    "t-icon": "tdesign-miniprogram/icon/icon"
+  },
+  "tabBar": {
+    "custom": true,
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [{
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/question-bank/question-bank",
+        "text": "卡片题库"
+      },
+      {
+        "pagePath": "pages/personal-question/personal-question",
+        "text": "个人"
       }
-      
+    ]
+  }
+
 }

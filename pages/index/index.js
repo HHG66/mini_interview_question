@@ -4,15 +4,16 @@ const app = getApp()
 
 Page({
   data: {
-    motto: 'Hello World11',
-    userInfo: {
-      nickName: '123',
-      avatarUrl: 'ttt'
+    startPoint: 0, //记录滑动的初始位置
+    slipFlag: false, //定义 滑动事件 节流阀, 防止一次滑动触发多次滑动事件
+    //面试题详细信息
+    questionInfo: {
+      id: '',
+      title: '',
+      details: '',
     },
-    hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    canIUseGetUserProfile: false,
-    canIUseOpenData: false && wx.canIUse('open-data.type.userAvatarUrl') && wx.canIUse('open-data.type.userNickName') // 如需尝试获取用户信息可改为false
+    //用于记录面试题id
+    previousQuestionList: []
   },
   // 事件处理函数
   bindViewTap() {
@@ -21,42 +22,79 @@ Page({
     })
   },
   onLoad() {
-    if (wx.getUserProfile) {
-      this.setData({
-        canIUseGetUserProfile: true
-      })
+    this.switchNextQuestion()
+  },
+  onShow() {
+    this.getTabBar().init();
+
+  },
+  myTouchStart(e) {
+    // ---------------------记录滑动事件信息---------------------
+    //开启滑动事件
+    this.data.slipFlag = true
+    //记录触摸点的坐标信息
+    this.data.startPoint = e.touches[0]
+    //---------------------记录滑动事件信息end---------------------
+  },
+
+  myTouchMove(e) {
+    // ----------------监听手势左右滑事件----------------
+    if (((this.data.startPoint.clientX - e.touches[e.touches.length - 1].clientX) > 80) && this.data.slipFlag) {
+      console.log("左滑事件");
+      this.data.slipFlag = false
+      // this.switchNextQuestion()
+      return
+    } else if (((this.data.startPoint.clientX - e.touches[e.touches.length - 1].clientX) < -80) && this.data.slipFlag) {
+      console.log("右滑事件");
+      this.data.slipFlag = false
+      return
     }
+    // ----------------监听手势左右滑事件end----------------
+
+    if (((this.data.startPoint.clientY - e.touches[e.touches.length - 1].clientY) > 80) && this.data.slipFlag) {
+      console.log("上滑事件");
+      this.data.slipFlag = false
+      this.switchNextQuestion()
+      return
+    } else if (((this.data.startPoint.clientY - e.touches[e.touches.length - 1].clientY) < -80) && this.data.slipFlag) {
+      console.log("下滑事件");
+      this.data.slipFlag = false
+      this.previousQuestion()
+      return
+    }
+
+
   },
-  onShow(){
-    // this.getTabBar().setData({
-    //   curI: 1
-    // })
-  },
-  getUserProfile(e) {
-    // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认，开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
-    wx.getUserProfile({
-      desc: '展示用户信息', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-      success: (res) => {
-        console.log(res)
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
-        })
+  //下一题
+  switchNextQuestion() {
+    wx.ajax({
+      url: "/getinterviewinfo",
+      type: 'GET',
+      data:{
       }
+    }).then((res) => {
+      this.setData({
+        questionInfo: res.data.data,
+      })
+      let previousQuestionId = res.data.data.id
+      this.setData({
+        previousQuestionList: [...this.data.previousQuestionList, previousQuestionId]
+      })
     })
   },
-  getUserInfo(e) {
-    // 不推荐使用getUserInfo获取用户信息，预计自2021年4月13日起，getUserInfo将不再弹出弹窗，并直接返回匿名的用户个人信息
-    console.log(e)
-    this.setData({
-      userInfo: e.detail.userInfo,
-      hasUserInfo: true
+  //上一题
+  previousQuestion(){
+    console.log(this.data.previousQuestionList);
+    console.log('上一题',this.data.previousQuestionList[this.data.previousQuestionList.length-2]);
+
+    wx.ajax({
+      url: "/getinterviewinfo",
+      type: 'GET',
+      data:{
+        id:this.data.previousQuestionList[this.data.previousQuestionList.length-2]
+      }
+    }).then((res) => {
+    
     })
-  },
-  fromLogin() {
-    // this.getUserProfile()
-    // wx.navigateTo({
-    //   url:"/pages/card-interview/card-interview"
-    // })
   }
 })
