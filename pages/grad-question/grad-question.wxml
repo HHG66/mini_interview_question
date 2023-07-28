@@ -1,10 +1,12 @@
 <view>
+
   <view wx:for="{{typeList}}" wx:key="index" wx:for-item='subitem'>
-  <text>{{subitem.title}}</text>
+  <view style="padding: 10rpx;margin-left: 20rpx;">{{subitem.title}}</view>
     <t-grid class="block" column="{{4}}" theme="card">
-    <t-grid-item wx:for="{{subitem.list}}" wx:key="index" wx:for-item='item' id='{{item.id}}' text="{{item.name}}" image="{{item.icon}}">
+    <t-grid-item bindclick="gridClick" wx:for="{{subitem.list}}" wx:key="index" wx:for-item='item' id='{{item.id}}' text="{{item.name}}" image="{{item.icon}}">
     </t-grid-item>
   </t-grid>
   </view>
 
 </view>
+

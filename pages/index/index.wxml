@@ -1,15 +1,21 @@
 <!--index.wxml-->
-<view class="container">
+<view class="block">
+  <t-tag theme="primary" class="margin-16" size="large" variant="light"  wx:for="{{questionInfo.tag}}" wx:for-item='item' wx:key="index">
+   {{item}}
+  </t-tag>
+</view>
 
-  <view style="width:90%;height: 90%;border: 1px solid red; border-radius: 20rpx;line-height: 1.5;padding: 20rpx;"  bindtouchstart='myTouchStart' bindtouchmove='myTouchMove' >
-    <view style="font-size: 50rpx;">
-      {{questionInfo.title}}
-    </view>
-    <view>
-      {{questionInfo.details}}
-    </view>
-  </view>
-  
- 
+<view class="card">
+  <t-cell-group theme="card" bindtouchstart='myTouchStart' bindtouchmove='myTouchMove' style="line-height: 1.5;padding: 20rpx;">
+    <t-cell bindtap="showTextMessage" title="{{questionInfo.title}}" description="{{questionInfo.details}}" hover />
+    <!-- <view style="width:90%;height: 90%; border-radius: 20rpx;line-height: 1.5;padding: 20rpx;" bindtouchstart='myTouchStart' bindtouchmove='myTouchMove'>
+      <view style="font-size: 50rpx;">
+        {{questionInfo.title}}
+      </view>
+      <view>
+      </view>
+    </view> -->
+  </t-cell-group>
+
 
 </view>

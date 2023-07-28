@@ -10,7 +10,12 @@ const pageView={
       details:'',
     }
   },
-
+  previousQuestion(){
+    console.log('获取上道题');
+  },
+  nextQuestion(){
+    console.log('获取下道题');
+  },
   /**
    * 生命周期函数--监听页面加载
    */

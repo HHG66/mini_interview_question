@@ -1,0 +1,5 @@
+<!--navbar/index.wxml-->
+<view class="block">
+121312312
+  <t-navbar class="block" title="标题文字" left-arrow bind:go-back="handleBack" />
+</view>

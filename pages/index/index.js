@@ -1,6 +1,7 @@
 // index.js
 // 获取应用实例
 const app = getApp()
+import Message from 'tdesign-miniprogram/message/index';
 
 Page({
   data: {
@@ -11,6 +12,7 @@ Page({
       id: '',
       title: '',
       details: '',
+      tag:['css']
     },
     //用于记录面试题id
     previousQuestionList: []
@@ -84,9 +86,8 @@ Page({
   },
   //上一题
   previousQuestion(){
-    console.log(this.data.previousQuestionList);
-    console.log('上一题',this.data.previousQuestionList[this.data.previousQuestionList.length-2]);
-
+    // console.log(this.data.previousQuestionList);
+    // console.log('上一题',this.data.previousQuestionList[this.data.previousQuestionList.length-2]);
     wx.ajax({
       url: "/getinterviewinfo",
       type: 'GET',
@@ -96,5 +97,19 @@ Page({
     }).then((res) => {
     
     })
-  }
+  },
+  questionClick(){
+    wx.navigateTo({
+      url: '/pages/interview-detail/interview-detail',
+    })
+  },
+  
+  showTextMessage(){
+  Message.error({
+    context: this,
+    offset: [20, 32],
+    duration: 5000,
+    content: '这是一条错误提示通知',
+  });
+ }
 })

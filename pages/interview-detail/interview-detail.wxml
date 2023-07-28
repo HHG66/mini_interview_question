@@ -1,5 +1,17 @@
 <view>
-  <view class="article">{{interviewDetail.id}}</view>
+  <!-- <view class="article">{{interviewDetail.id}}</view> -->
   <view class="article">{{interviewDetail.title}}</view>
   <view class="article">{{interviewDetail.details}}</view>
+  <!-- <view class="article">
+    没根无王即龙是决影组领表与。<text style="font-weight: bolder;text-decoration:underline;">委听活龙历石许来证正满快管保构。</text>极或且识太照象向中至先标当划特或。
+  </view> -->
+
+
+  
+  <t-divider content="End" />
+</view>
+
+<view style="position:fixed; bottom:50rpx;display: flex;justify-content:space-between;width: 100%;">
+  <t-button bindtap="previousQuestion" theme="light" size="large"  shape="round">上一题</t-button>
+  <t-button bindtap="nextQuestion" theme="light" size="large"  shape="round">下一题</t-button>
 </view>

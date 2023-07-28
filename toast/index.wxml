@@ -1,0 +1,2 @@
+<!--toast/index.wxml-->
+<t-message id="t-message" />

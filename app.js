@@ -24,7 +24,7 @@ App({
     // wx.switchTab({
     //   url: './pages/card-interview/card-interview',
     // })
-    wx.requestUrl = 'http://192.168.0.106:4523/m1/3064387-0-default'
+    wx.requestUrl = 'http://192.168.0.47:4523/m1/3064387-0-default'
     wx.ajax=utils
   },
   globalData: {

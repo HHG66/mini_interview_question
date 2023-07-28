@@ -1,4 +1,8 @@
 {
-  "component": true,
-  "usingComponents": {}
+    "component": true,
+    "usingComponents": {
+        "t-cell": "tdesign-miniprogram/cell/cell",
+        "t-navbar": "tdesign-miniprogram/navbar/navbar",
+        "navbar":"/navbar/index"
+    }
 }

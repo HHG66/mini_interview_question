@@ -4,8 +4,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    typeList: [
-      {
+    typeList: [{
         title: '前端',
         list: [{
           id: '1231232199',
@@ -40,12 +39,28 @@ Page({
 
     ],
   },
-
+  gridClick: function (e) {
+    console.log(e.target.id);
+    wx.navigateTo({
+      url: '/pages/question-bank/question-bank',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.ajax({
+      url:'/getinterviewtype',
+      type:'GET',
+      data:{
+        test:1
+      }
+    }).then((res)=>{
+      
+      this.setData({
+        typeList:res.data.data
+      })      
+    })
   },
 
   /**
@@ -59,6 +74,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    this.getTabBar().init();
 
   },
 
